@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Prologue by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id="title">Josue Reyes</h1>
+							<p>Software Engineer</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+							<header>
+								<h2 class="alt">Hi! I'm <strong>Josue</strong>, a Computer Science student at UNT passionate about backend engineering, machine learning, and fintech.</h2>
+							</header>
+
+							<footer>
+								<a href="#portfolio" class="button scrolly">View My Work</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+						<section id="portfolio" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Portfolio</h2>
+							</header>
+
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<article class="item" style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; cursor: pointer;" onclick="openProject('guardian')">
+										<div class="image fit"><img src="images/guardianAlert.png" alt="Guardian Alert" style="width:100%; display:block;" /></div>
+										<header style="padding: 10px;">
+											<h3>Guardian Alert</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item" style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; cursor: pointer;" onclick="openProject('jpmorgan')">
+										<div class="image fit"><img src="images/jpmorgan.png" alt="JPMorgan Midas" style="width:100%; display:block;" /></div>
+										<header style="padding: 10px;">
+											<h3>JPMorgan Midas</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item" style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; cursor: pointer;" onclick="openProject('diabetes')">
+										<div class="image fit"><img src="images/diabetes.png" alt="Diabetes Tracker" style="width:100%; display:block;" /></div>
+										<header style="padding: 10px;">
+											<h3>Diabetes Tracker</h3>
+										</header>
+									</article>
+								</div>
+								<div class="col-6 col-12-mobile">
+									<article class="item" style="border: 2px solid #ddd; border-radius: 8px; overflow: hidden; cursor: pointer;" onclick="openProject('ml')">
+										<div class="image fit"><img src="images/mlclassification.png" alt="ML Classification" style="width:100%; display:block;" /></div>
+										<header style="padding: 10px;">
+											<h3>ML Classification Models</h3>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- Project Modal -->
+					<div id="projectModal" onclick="if(event.target===this)closeProject()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+						<div style="background:#fff; max-width:650px; width:90%; border-radius:10px; padding:40px; position:relative;">
+							<button onclick="closeProject()" style="position:absolute; top:15px; right:25px; background:#333; color:white; border:none; border-radius:50%; width:32px; height:32px; font-size:16px; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center; flex-shrink:0;">✕</button>
+							<h2 id="modalTitle" style="margin-bottom:15px;"></h2>
+							<p id="modalDesc" style="line-height:1.7; color:#444;"></p>
+						</div>
+					</div>
+
+					<script>
+					const projects = {
+						guardian: {
+							title: "Guardian Alert",
+							desc: "A Spring Boot web application designed to help parents find missing children quickly. Parents can store critical information about their child in one place and share it instantly with law enforcement and their community. The system includes MFA email authentication, real-time location updates, emergency alerts, and guardian management — built to make response faster and less overwhelming when every second counts."
+						},
+						jpmorgan: {
+							title: "JPMorgan Midas — Software Engineering Simulation",
+							desc: "Built as part of the JPMorgan Chase Software Engineering Job Simulation on Forage. Integrated Kafka into a Spring Boot microservice to consume and deserialize high-volume transaction messages. Implemented transaction validation and persistence with Spring Data JPA and an H2 SQL database. Connected to an external REST Incentive API using RestTemplate and developed a REST endpoint for querying user balances. Verified system behavior using Maven test suites."
+						},
+						diabetes: {
+							title: "Diabetes Tracker",
+							desc: "A mobile app that helps people with Type 1/Type 2 diabetes and pre-diabetes manage glucose, diet, activity, and medications. Uses AI to predict short-term blood glucose trends, classify meals from photos, estimate carbs, and offer personalized coaching in plain language. Built with a Flutter frontend, Python backend, AWS S3 for meal photo storage, Lambda for AI predictions, and DynamoDB for real-time data persistence."
+						},
+						ml: {
+							title: "ML Classification Models",
+							desc: "Comparative analysis of classification algorithms on two real-world datasets — Glass and Diabetes — using weighted F1 as the evaluation metric. Models evaluated include Perceptron, Logistic Regression, MLP (Multi-Layer Perceptron), and RBF Kernel with Linear Models. MLP outperformed all linear models on both datasets, demonstrating the advantage of neural approaches on non-linearly separable data."
+						}
+					};
+
+					function openProject(key) {
+						document.getElementById('modalTitle').innerText = projects[key].title;
+						document.getElementById('modalDesc').innerText = projects[key].desc;
+						document.getElementById('projectModal').style.display = 'flex';
+					}
+
+					function closeProject() {
+						document.getElementById('projectModal').style.display = 'none';
+					}
+					</script>
+					
+
+				<!-- About Me -->
+					<section id="about" class="three">
+						<div class="container">
+
+							<header>
+								<h2>About Me</h2>
+							</header>
+
+							<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+
+							<p>I'm a Computer Science senior at UNT graduating Summer 2026, originally from Guatemala. I grew up watching my dad build a trucking business as an owner-operator, and today I still drive part-time to support my family while finishing my degree.</p>
+
+							<p>I'm passionate about backend engineering, fintech, and autonomous vehicles — drawn to problems where software has real world impact. Long term, I want to bring computer science education to rural communities in Guatemala, where many kids have never been introduced to programming or what it can do.</p>
+
+							<p>Outside of school I'm a soccer player, a husband, and a father to a one-year-old. Balancing trucking, school, and family has been one of the toughest and most rewarding decisions I've ever made.</p>
+
+						</div>
+					</section>
+
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p>Feel free to reach out — I'm always open to new opportunities and conversations.</p>
+
+							<ul style="list-style:none; padding:0; margin-top:20px;">
+								<li style="margin-bottom:10px;">📧 <a href="mailto:josuefreyes94@gmail.com">josuefreyes94@gmail.com</a></li>
+								<li style="margin-bottom:10px;">💼 <a href="https://www.linkedin.com/in/jfr06/" target="_blank">linkedin.com/in/jfr06</a></li>
+								<li style="margin-bottom:10px;">🐙 <a href="https://github.com/JRP06" target="_blank">github.com/JRP06</a></li>
+							</ul>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
